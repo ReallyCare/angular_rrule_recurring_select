@@ -1,7 +1,7 @@
 {
   "name": "angular-rrule-recurring-select",
   "author": "Mark Chapman <support@reallycare.org>",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Recurrence editor",
   "repository": {
     "type": "git",

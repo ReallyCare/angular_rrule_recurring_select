@@ -242,7 +242,7 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
           }
         }
         var recurStartObj = {};
-        if (scope.showRecurStart() && scope.recurStartDirty && scope.recurStart?.date) {
+        if (scope.showRecurStart() && scope.recurStartDirty && scope.recurStart && scope.recurStart.date) {
           // if they have manually adjusted the start date, we need it to be included in scope.rule so that
           // our host will have access to it
           recurStartObj.dtstart = scope.recurStart.date;
