@@ -2,7 +2,7 @@
 
   <div class="sessions rrs-toggle inline" ng-if="!noSessions">
     <div class="sessionsLabel col1">
-      <label>Session(s)</label>
+      <label>{{ hoursOrSessionsLabel() }}</label>
     </div>
     <div class="sessionsOpts">
       <div class="noSessionsLabel" data-ng-if="!hours || hours.length === 0">

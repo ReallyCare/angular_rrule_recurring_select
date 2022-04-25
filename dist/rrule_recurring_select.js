@@ -138,6 +138,10 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
         return hoursArray;
       };
 
+      scope.hoursOrSessionsLabel = function() {
+        return scope.hours.length === 24 ? "Hour(s)" : "Session(s)";
+      }
+
       scope.medSlots = function() {
         var hoursArray;
         if (typeof scope.$parent.personMedsSlots === "function") {
