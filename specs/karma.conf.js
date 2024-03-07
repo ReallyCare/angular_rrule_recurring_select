@@ -7,8 +7,7 @@ module.exports = function(config) {
     files: [
       '../node_modules/angular/angular.js',
       '../node_modules/moment/moment.js',
-      '../node_modules/rrule/lib/rrule.js',
-      '../node_modules/rrule/lib/nlp.js',
+      '../node_modules/rrule/dist/es5/rrule.js',
       '../node_modules/angular-mocks/angular-mocks.js',
       '../node_modules/lodash/lodash.js',
       '../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',

@@ -12,6 +12,7 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
 
       var MS_IN_DAY = 1000 * 60 * 60 * 24;
       var programaticChange = false;
+      const RRule = rrule.RRule;
 
       scope.init = function() {
         scope.showStart = attrs['showStart'] || "never";
@@ -143,7 +144,7 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
       }
 
       scope.medSlots = function() {
-        var hoursArray;
+        var hoursArray = [];
         if (typeof scope.$parent.personMedsSlots === "function") {
           hoursArray = scope.$parent.personMedsSlots();
         } else {
@@ -310,7 +311,7 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
         angular.extend(ruleOptions, recurEndObj, recurStartObj);
         
         scope.recurrenceRule = new RRule(ruleOptions);
-      };
+      }
 
       scope.calculateHourlyRRule = function(recurEndObj, recurStartObj) {
         var ruleOptions = {
@@ -396,7 +397,7 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
         _.each(scope.hours, function(hour) {
           hour.selected = (_.includes(ruleSelectedHours, hour.value));
         });
-      };
+      }
 
       function setDefaultRecurStart() {
         const nextInstance = scope.recurrenceRule.after(new Date());
@@ -519,7 +520,7 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
         _.each(scope.weekDays, function(weekDay) {
           weekDay.selected = (_.includes(ruleSelectedDays, weekDay.value.weekday));
         });
-      };
+      }
       scope.initFromWeeklyRule = initFromWeeklyRule;
 
       function initFromYearlyRule() {
@@ -544,7 +545,7 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
         } else if (!_.isEmpty(scope.recurrenceRule.options.bynweekday)) {
           scope.initFromMonthWeekDays();
         }          
-      };
+      }
       scope.initFromMonthlyRule = initFromMonthlyRule;
 
       scope.initFromMonthDays = function() {
@@ -585,7 +586,6 @@ angular.module('rruleRecurringSelect', ["ui.bootstrap.datetimepicker", "fng.uiBo
           _.each(week, function(day) {
             if (day.value.weekday == dayIndex) {
               day.selected = true;
-              return;
             }
           });
         });
