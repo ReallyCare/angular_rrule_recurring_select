@@ -13,6 +13,8 @@ describe("rrule_recurring_select Directive", function() {
     compile = $compile;
   }));
 
+  const RRule = rrule.RRule;
+
   describe("without a rule passed in", function() {
     beforeEach(function() {
       element = compile('<rrule_recurring_select></rrule_recurring_select>')(scope);
@@ -448,7 +450,7 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string from RRule", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.eql('FREQ=HOURLY;INTERVAL=1;WKST=SU');
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql('FREQ=HOURLY;INTERVAL=1;WKST=SU');
         });
       });
 
@@ -464,7 +466,7 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string from RRule", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.eql('FREQ=HOURLY;INTERVAL=2;WKST=SU');
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql('FREQ=HOURLY;INTERVAL=2;WKST=SU');
         });
       });
 
@@ -489,7 +491,7 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string from RRule", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.eql('FREQ=DAILY;INTERVAL=1;WKST=SU');
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql('FREQ=DAILY;INTERVAL=1;WKST=SU');
         });
       });
 
@@ -505,7 +507,7 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string from RRule", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.eql('FREQ=DAILY;INTERVAL=2;WKST=SU');
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql('FREQ=DAILY;INTERVAL=2;WKST=SU');
         });
       });
 
@@ -523,12 +525,12 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string from RRule", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=DAILY/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYHOUR=10,17/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYSECOND=0/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYMINUTE=0/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=DAILY/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYHOUR=10,17/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYSECOND=0/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMINUTE=0/);
         });
       });
 
@@ -552,7 +554,7 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.eql('FREQ=WEEKLY;INTERVAL=1;WKST=SU');
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql('FREQ=WEEKLY;INTERVAL=1;WKST=SU');
         });
       });
 
@@ -568,10 +570,10 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=WEEKLY/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYDAY=MO/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=WEEKLY/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYDAY=MO/);
         });
       });
 
@@ -588,10 +590,10 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=WEEKLY/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYDAY=MO,TH/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=WEEKLY/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYDAY=MO,TH/);
         });
       });
 
@@ -608,10 +610,10 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=WEEKLY/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=2/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYDAY=WE/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=WEEKLY/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=2/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYDAY=WE/);
         });
       });
     });
@@ -664,14 +666,14 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct text", function() {
-          expect(directiveScope.recurrenceRule.toText()).to.eql('every month on the 10th, 21st and 3rd');
+          expect(directiveScope.recurrenceRule.toText()).to.eql('every month on the 3rd, 10th and 21st');
         });
 
         it("has the correct iCal string", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=MONTHLY/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTHDAY=3,10,21/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=MONTHLY/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTHDAY=3,10,21/);
         });
       });
 
@@ -686,10 +688,10 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=MONTHLY/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTHDAY=-1/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=MONTHLY/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTHDAY=-1/);
         });
       });
 
@@ -706,10 +708,10 @@ describe("rrule_recurring_select Directive", function() {
         });
 
         it("has the correct iCal string", function() {
-          expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=MONTHLY/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=3/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-          expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTHDAY=1,-1/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=MONTHLY/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=3/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+          expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTHDAY=1,-1/);
         });
       });
     });
@@ -738,10 +740,10 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("has the correct iCal string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=MONTHLY/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYDAY=\+2TU,\+4TU/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=MONTHLY/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYDAY=\+2TU,\+4TU/);
           });
         });
 
@@ -757,10 +759,10 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("has the correct iCal string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=MONTHLY/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYDAY=\+1SU,\+2TU/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=MONTHLY/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYDAY=\+1SU,\+2TU/);
           });
         });
       });
@@ -782,10 +784,10 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("has the correct iCal string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=MONTHLY/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=2/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYDAY=\+2MO,\+4MO/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=MONTHLY/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=2/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYDAY=\+2MO,\+4MO/);
           });
         });
       });
@@ -813,11 +815,11 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("has the correct iCal string from RRule", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=YEARLY/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/WKST=SU/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTH=8/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTHDAY=25/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=YEARLY/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/WKST=SU/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTH=8/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTHDAY=25/);
           });
         });
 
@@ -834,14 +836,14 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("can grab text description from RRule", function() {
-            expect(directiveScope.recurrenceRule.toText()).to.eql('every May and August on the 25th and 7th');
+            expect(directiveScope.recurrenceRule.toText()).to.eql('every May and August on the 7th and 25th');
           });
 
           it("has the correct iCal string from RRule", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=YEARLY/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=1/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTH=5,8/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTHDAY=7,25/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=YEARLY/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=1/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTH=5,8/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTHDAY=7,25/);
           });
         });
       });
@@ -861,10 +863,10 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("has the correct iCal string from RRule", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=YEARLY/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=2/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTH=8/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTHDAY=25/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=YEARLY/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=2/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTH=8/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTHDAY=25/);
           });
         });
 
@@ -881,14 +883,14 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("can grab text description from RRule", function() {
-            expect(directiveScope.recurrenceRule.toText()).to.eql('every 2 years May and August on the 25th and 7th');
+            expect(directiveScope.recurrenceRule.toText()).to.eql('every 2 years May and August on the 7th and 25th');
           });
 
           it("has the correct iCal string from RRule", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.match(/FREQ=YEARLY/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/INTERVAL=2/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTH=5,8/);
-            expect(directiveScope.recurrenceRule.toString()).to.match(/BYMONTHDAY=7,25/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/FREQ=YEARLY/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/INTERVAL=2/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTH=5,8/);
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.match(/BYMONTHDAY=7,25/);
           });
         });
       });
@@ -909,7 +911,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets the selectedFrequency to 'hourly'", function() {
@@ -929,7 +931,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets the selectedFrequency to 'hourly'", function() {
@@ -952,7 +954,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets the selectedFrequency to 'daily'", function() {
@@ -972,7 +974,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets the selectedFrequency to 'daily'", function() {
@@ -992,7 +994,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets the selectedFrequency to 'daily'", function() {
@@ -1029,7 +1031,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets the selected frequency to weekly", function() {
@@ -1049,7 +1051,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets selected to true for monday", function() {
@@ -1079,7 +1081,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets selected to true for monday and thursday", function() {
@@ -1110,7 +1112,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets selected to true for wednesday", function() {
@@ -1147,7 +1149,7 @@ describe("rrule_recurring_select Directive", function() {
             });
 
             it("sets the recurrenceRule from the ical string", function() {
-              expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+              expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
             });
 
             it("sets the selectedFrequency to monthly", function() {
@@ -1188,7 +1190,7 @@ describe("rrule_recurring_select Directive", function() {
             });
 
             it("sets the recurrenceRule from the ical string", function() {
-              expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+              expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
             });
 
             it("sets the selectedFrequency to monthly", function() {
@@ -1223,7 +1225,7 @@ describe("rrule_recurring_select Directive", function() {
             });
 
             it("sets the recurrenceRule from the ical string", function() {
-              expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+              expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
             });
 
             it("sets the selectedFrequency to monthly", function() {
@@ -1261,7 +1263,7 @@ describe("rrule_recurring_select Directive", function() {
             });
 
             it("sets the recurrenceRule from the ical string", function() {
-              expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+              expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
             });
 
             it("sets the selectedFrequency to monthly", function() {
@@ -1290,7 +1292,7 @@ describe("rrule_recurring_select Directive", function() {
             });
 
             it("sets the recurrenceRule from the ical string", function() {
-              expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+              expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
             });
 
             it("sets the selectedFrequency to monthly", function() {
@@ -1315,7 +1317,7 @@ describe("rrule_recurring_select Directive", function() {
             });
 
             it("sets the recurrenceRule from the ical string", function() {
-              expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+              expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
             });
 
             it("sets the selectedFrequency to monthly", function() {
@@ -1343,7 +1345,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets the selectedFrequency to yearly", function() {
@@ -1363,7 +1365,7 @@ describe("rrule_recurring_select Directive", function() {
           });
 
           it("sets the recurrenceRule from the ical string", function() {
-            expect(directiveScope.recurrenceRule.toString()).to.eql(iCalString)
+            expect(directiveScope.recurrenceRule.toString().slice(6)).to.eql(iCalString)
           });
 
           it("sets the selectedFrequency to yearly", function() {
